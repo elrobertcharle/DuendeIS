@@ -13,22 +13,21 @@ public static class Config
             new IdentityResources.Profile(),
         };
 
-    private const string WeatherForecastApiRead = "weather-forecast-api.read";
-    public static IEnumerable<ApiScope> ApiScopes =>
-        [new ApiScope { Name = WeatherForecastApiRead, DisplayName = "Read Weather Forecast" }];
+    private const string WeatherForecastApiReadScope = "weather-forecast-api.read";
+    public static IEnumerable<ApiScope> ApiScopes => [new ApiScope { Name = WeatherForecastApiReadScope, DisplayName = "Read Weather Forecast" }];
 
     public static IEnumerable<Client> Clients =>
         [ new Client{
             ClientId="ClientApi1",
             AllowedGrantTypes= GrantTypes.ClientCredentials,
             ClientSecrets=[new Secret("Secret".Sha256())],
-            AllowedScopes=[WeatherForecastApiRead]},
+            AllowedScopes=[WeatherForecastApiReadScope]},
         new Client{
             ClientId="Web",
             ClientSecrets=[new Secret("websecret".ToSha256())],
             AllowedGrantTypes=GrantTypes.Code,
             RedirectUris=["https://localhost:5002/signin-oidc"],
             PostLogoutRedirectUris=["https://localhost:5002/signout-callback-oidc"],
-            AllowedScopes=[IdentityServerConstants.StandardScopes.OpenId, IdentityServerConstants.StandardScopes.Profile]
+            AllowedScopes=[IdentityServerConstants.StandardScopes.OpenId, IdentityServerConstants.StandardScopes.Profile, WeatherForecastApiReadScope]
             }];
 }

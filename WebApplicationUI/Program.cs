@@ -15,6 +15,7 @@ builder.Services.AddAuthentication(options =>
     options.Scope.Clear();
     options.Scope.Add("openid");
     options.Scope.Add("profile");
+    options.Scope.Add("weather-forecast-api.read");
     options.GetClaimsFromUserInfoEndpoint = true;
     options.MapInboundClaims = false;
     options.DisableTelemetry = true;
