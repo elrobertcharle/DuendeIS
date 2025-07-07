@@ -1,12 +1,11 @@
+using WebApplicationUI.Client;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddOpenIdConnectAccessTokenManagement();
-builder.Services.AddUserAccessTokenHttpClient("WeatherApi", configureClient: client =>
-{
-    client.BaseAddress = new Uri("https://localhost:7021");
-});
+builder.Services.AddHttpClient<WeatherClient>().AddUserAccessTokenHandler();
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultScheme = "Cookies";

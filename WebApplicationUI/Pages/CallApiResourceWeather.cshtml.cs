@@ -4,23 +4,23 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Net.Http;
 using System.Threading.Tasks;
+using WebApplicationUI.Client;
 
 namespace WebApplicationUI.Pages
 {
     public class CallApiResourceWeatherModel : PageModel
     {
-        private readonly IHttpClientFactory _httpClientFactory;
-        public CallApiResourceWeatherModel(IHttpClientFactory httpClientFactory)
+        private readonly WeatherClient _weatherClient;
+        public CallApiResourceWeatherModel(WeatherClient weatherClient)
         {
-            _httpClientFactory = httpClientFactory;
+            _weatherClient = weatherClient;
         }
 
         public string Json = string.Empty;
 
         public async Task OnGet()
         {
-            var httpClient = _httpClientFactory.CreateClient("WeatherApi");
-            Json = await httpClient.GetStringAsync("WeatherForecast");
+            Json = await _weatherClient.GetWeatherForecastAsync();
         }
     }
 }
