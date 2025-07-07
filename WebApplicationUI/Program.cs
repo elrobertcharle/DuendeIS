@@ -2,6 +2,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddOpenIdConnectAccessTokenManagement();
+builder.Services.AddUserAccessTokenHttpClient("WeatherApi", configureClient: client =>
+{
+    client.BaseAddress = new Uri("https://localhost:7021");
+});
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultScheme = "Cookies";
@@ -16,6 +21,7 @@ builder.Services.AddAuthentication(options =>
     options.Scope.Add("openid");
     options.Scope.Add("profile");
     options.Scope.Add("weather-forecast-api.read");
+    options.Scope.Add("offline_access");
     options.GetClaimsFromUserInfoEndpoint = true;
     options.MapInboundClaims = false;
     options.DisableTelemetry = true;

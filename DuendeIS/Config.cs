@@ -28,6 +28,8 @@ public static class Config
             AllowedGrantTypes=GrantTypes.Code,
             RedirectUris=["https://localhost:5002/signin-oidc"],
             PostLogoutRedirectUris=["https://localhost:5002/signout-callback-oidc"],
-            AllowedScopes=[IdentityServerConstants.StandardScopes.OpenId, IdentityServerConstants.StandardScopes.Profile, WeatherForecastApiReadScope]
+            AllowedScopes=[IdentityServerConstants.StandardScopes.OpenId, IdentityServerConstants.StandardScopes.Profile, WeatherForecastApiReadScope],
+            AllowOfflineAccess = true,
+            //AccessTokenLifetime =10 //short time for demonstration purpose 
             }];
 }
