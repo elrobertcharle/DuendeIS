@@ -16,8 +16,17 @@ public static class Config
     private const string WeatherForecastApiReadScope = "weather-forecast-api.read";
 
     public static IEnumerable<ApiScope> ApiScopes =>
+     [
+         new ApiScope(WeatherForecastApiReadScope)
+     ];
+
+    public static IEnumerable<ApiResource> ApiResources =>
         [
-            new ApiScope(WeatherForecastApiReadScope)
+            new ApiResource("weather-forecast-api", "Weather Forecast API")
+            {
+                Scopes = { WeatherForecastApiReadScope },
+                // UserClaims = { "role", "email" } // opcional
+            }
         ];
 
     public static IEnumerable<Client> Clients =>
