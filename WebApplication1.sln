@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientApi", "ClientApi\Clie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplicationUI", "WebApplicationUI\WebApplicationUI.csproj", "{E2628D7F-D838-4294-B97F-F7377F9A3305}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DuendeIS2", "DuendeIS2\DuendeIS2.csproj", "{C63007B4-42A7-5A67-1AAB-F77E1D724F1B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{E2628D7F-D838-4294-B97F-F7377F9A3305}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2628D7F-D838-4294-B97F-F7377F9A3305}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E2628D7F-D838-4294-B97F-F7377F9A3305}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C63007B4-42A7-5A67-1AAB-F77E1D724F1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C63007B4-42A7-5A67-1AAB-F77E1D724F1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C63007B4-42A7-5A67-1AAB-F77E1D724F1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C63007B4-42A7-5A67-1AAB-F77E1D724F1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
